@@ -1,0 +1,46 @@
+<div class="modal-body">
+    <div class="modal-header">
+      <h2 class="modal-header-title">
+        <i class="fa fa-info-circle"></i>
+        <span class="p-l-1">Are you sure?</span>
+      </h2>
+  
+      <a class="modal-header-close" ng-click="dismiss();">
+        <i class="fa fa-remove"></i>
+      </a>
+    </div>
+  
+    <form class="form" id="order-mgt-scheduler-form">
+      <div class="modal-content" id="modal-modal-content">
+        <div class="text-center">
+  
+          <p style="font-size:15px;color:rgb(224, 77, 77)"><strong style="font-size:18px;">Note:</strong> All children of this node will also be deleted, are you sure you want to delete this node?</p>
+
+        </div>
+  
+        <div class="custom-separator" style="margin-top:30px"></div>
+  
+        <div class="button-wrapper" style="text-align:center; margin-top:30px">
+          <button
+            id="master-data-reason-code-delete-confirmation-cancel-btn"
+            type="button"
+            class="btn btn-danger"
+            style="width:9rem"
+            ng-click="dismiss()"
+          >
+            Cancel
+          </button>
+  
+          <button
+            id="master-data-reason-code-delete-confirmation-confirm-btn"
+            type="button"
+            class="btn btn-success"
+            style="width:9rem"
+          >
+            Sure
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  

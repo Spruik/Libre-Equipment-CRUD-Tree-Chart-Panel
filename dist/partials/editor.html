@@ -1,0 +1,13 @@
+<div class="editor-row" ng-onload="ediotr.render()">
+	<div class="section gf-form-group">
+		<h5 class="section-heading">Events</h5>
+        <div class="gf-form">
+            <label class="gf-form-label width-15">Maximun Events Display (1 - 15)</label>
+            <input type="number" class="gf-form-input width-7"
+                                placeholder="10" data-placement="right"
+                                                    ng-model="editor.panel.maxEvents"
+                                                    ng-change="editor.render()"
+                                                    ng-model-onblur>
+        </div>
+  </div>
+</div>

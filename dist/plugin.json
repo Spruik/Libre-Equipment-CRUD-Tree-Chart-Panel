@@ -1,0 +1,25 @@
+{
+  "type": "panel",
+  "name": "Equipment Tree Panel",
+  "id": "smart-factory-equipment-crud-tree-chart-panel",
+
+  "info": {
+    "description": "Equipment Tree for user to CRUD the database",
+    "keywords": ["panel"],
+    "links": [
+      {"name": "Project site", "url": "https://github.com/Billiballa/grafana-table-panel"}
+    ],
+    "version": "1.0.0",
+    "updated": "2017-06-23"
+  },
+  
+  "logos": {
+    "small": "img/icn-table-panel.svg",
+    "large": "img/icn-table-panel.svg"
+  },
+
+  "dependencies": {
+    "grafanaVersion": "4.x.x",
+    "plugins": [ ]
+  }
+}
