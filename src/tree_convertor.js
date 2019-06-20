@@ -14,7 +14,6 @@
 
     //take all sites out from an array of objects, find disctinct, and make those distinct values a new array of strings
     const distinctSites = findDisctinct(data, 'site')
-    console.log(data);
     for (let i = 0; i < distinctSites.length; i++) {
       const site = distinctSites[i];
       let ob = {

@@ -18,7 +18,6 @@ System.register([], function (_export, _context) {
 
       //take all sites out from an array of objects, find disctinct, and make those distinct values a new array of strings
     };var distinctSites = findDisctinct(data, 'site');
-    console.log(data);
     for (var i = 0; i < distinctSites.length; i++) {
       var site = distinctSites[i];
       var ob = {
