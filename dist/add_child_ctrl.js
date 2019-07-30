@@ -18,7 +18,7 @@ System.register(['./utils', 'angular'], function (_export, _context) {
         self = void 0;
     var placeholder = void 0;
     var maxLength = 12;
-    console.log(allData);
+    // console.log(allData);
 
     if (node.type === 'Root') {
       sub = 'Site';
@@ -100,7 +100,7 @@ System.register(['./utils', 'angular'], function (_export, _context) {
    * @param {*} input
    */
   function isInputAvailable(input) {
-    console.log(filter);
+    // console.log(filter);
     filter = filter.reduce(function (arr, d) {
       arr.push(d.toLowerCase());
       return arr;

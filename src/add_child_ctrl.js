@@ -19,7 +19,7 @@ function prepareModalData (node, allData) {
   let sub, self
   let placeholder
   let maxLength = 12
-  console.log(allData);
+  // console.log(allData);
   
   if (node.type === 'Root') {
     sub = 'Site'
@@ -93,7 +93,7 @@ function removeListeners () {
  * @param {*} input
  */
 function isInputAvailable (input) {
-  console.log(filter);
+  // console.log(filter);
   filter = filter.reduce((arr, d) => {
     arr.push(d.toLowerCase())
     return arr
