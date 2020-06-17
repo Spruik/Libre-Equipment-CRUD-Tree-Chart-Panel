@@ -16,17 +16,17 @@ function addListeners(data, panelCtrl, allData){
       if (data.type === 'Equipment') {
         utils.alert('warning', 'Warning', 'Adding child to Equipment is not allowed')
         $('#master-data-crud-options-form-dismiss-btn').trigger('click')
-      }else {
+      } else {
         addChild(data, allData, panelCtrl)
       }
-    }else if(e.target.id === 'update') {
+    } else if(e.target.id === 'update') {
       if (data.type === 'Root') {
         utils.alert('warning', 'Warning', 'The root is not updatable')
         $('#master-data-crud-options-form-dismiss-btn').trigger('click')
       }else {
         updateNode(data, allData, panelCtrl)
       }
-    }else if(e.target.id === 'delete') {
+    } else if(e.target.id === 'delete') {
       if (data.type === 'Root') {
         utils.alert('warning', 'Warning', 'The root is not deletable')
         $('#master-data-crud-options-form-dismiss-btn').trigger('click')
