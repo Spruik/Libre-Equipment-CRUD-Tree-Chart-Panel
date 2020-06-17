@@ -12,7 +12,7 @@ System.register([], function (_export, _context) {
     //root
     var obj = {
       children: [],
-      name: 'Bernatellos',
+      name: 'Enterprise',
       type: 'Root',
       parent: null
 

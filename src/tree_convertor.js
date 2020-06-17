@@ -7,7 +7,7 @@
     //root
     let obj = {
       children: [],
-      name: 'Bernatellos',
+      name: 'Enterprise',
       type: 'Root',
       parent: null
     }
