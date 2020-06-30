@@ -6,8 +6,11 @@ This panel gives users the ability to visualize the enterprise site, area, line 
 
 Equipment objects have 6 properties.
 
-1. name - Name of the operation _limited to 20 characters_
-2. sequence - Order of display _>= 0_
+1. site - Name of the site _limited to 50 characters_
+2. area - Name of the area _limited to 50 characters_
+3. production_line - Name of the line _limited to 50 characters_
+4. equipment - Name of the equipment _limited to 50 characters_
+5. start_time - time at which orders can be scheduled _limited to 10 characters_
 
 ![Equipment Panel](./docs/libre-equipment-crud-tree-chart-panel.gif)
 
@@ -49,25 +52,19 @@ In order to get the most out of this panel:
 
 ![Panel Metrics](./docs/libre-equipment-crud-tree-chart-panel-metrics.png)
 
-2. Apply custom column styles:
+2. Add a tooltip to inform users to long click to add, edit and delete nodes in their enterprise
 
-| Column   | Type   | Name Override | Other                    |
-|----------|--------|---------------|--------------------------|
-| id       | hidden |       -       |   -                      |
-| name     | String | ID            |   -                      |
-| sequence | Number | SEQUENCE      | unit: short, decimals: 0 |
+### Add
 
-### Adding
+Long click the parent node and click add child. Provide a name and submit.
 
-Use the + icon to add in a new operation by providing a name and a sequence.
+### Update
 
-### Update / Delete
+Long click the node and select update. Update the name and submit.
 
-Click an existing operation so show the actions popup. Delete removes the object, whilst update shows a popup to edit and save an operation properties.
+### Delete
 
-### Searching
-
-Use the search box to filter the list of operations.
+Long click the node and select delete. This will delete any child nodes.
 
 ## Developing
 
