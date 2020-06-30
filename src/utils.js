@@ -110,7 +110,7 @@ export const alert = (type, title, msg) => {
 
 export const showModal = (html, data) => {
   appEvents.emit('show-modal', {
-    src: 'public/plugins/smart-factory-equipment-crud-tree-chart-panel/partials/' + html,
+    src: 'public/plugins/libre-equipment-crud-tree-chart-panel/partials/' + html,
     modalClass: 'confirm-modal',
     model: data
   })
