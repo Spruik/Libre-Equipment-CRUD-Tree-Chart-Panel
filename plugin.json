@@ -21,7 +21,10 @@
     "screenshots": [
       {"name": "Panel", "url": "public/plugins/libre-equipment-crud-tree-chart-panel/docs/libre-equipment-crud-tree-chart-panel.png"},
       {"name": "Actions", "url": "public/plugins/libre-equipment-crud-tree-chart-panel/docs/libre-equipment-crud-tree-chart-panel-actions.png"},
-      {"name": "Add", "url": "public/plugins/libre-equipment-crud-tree-chart-panel/docs/libre-equipment-crud-tree-chart-panel-actions.png"}
+      {"name": "Metrics", "url": "public/plugins/libre-equipment-crud-tree-chart-panel/docs/libre-equipment-crud-tree-chart-panel-metrics.png"},
+      {"name": "Add", "url": "public/plugins/libre-equipment-crud-tree-chart-panel/docs/libre-equipment-crud-tree-chart-panel-add.png"},
+      {"name": "Edit", "url": "public/plugins/libre-equipment-crud-tree-chart-panel/docs/libre-equipment-crud-tree-chart-panel-update.png"},
+      {"name": "Delete", "url": "public/plugins/libre-equipment-crud-tree-chart-panel/docs/libre-equipment-crud-tree-chart-panel-delete.png"}
     ],
     "version": "1.0.0",
     "updated": "2020-06-30"
