@@ -54,6 +54,8 @@ In order to get the most out of this panel:
 
 2. Add a tooltip to inform users to long click to add, edit and delete nodes in their enterprise
 
+| Long click to add/edit/remove node.
+
 ### Add
 
 Long click the parent node and click add child. Provide a name and submit.
