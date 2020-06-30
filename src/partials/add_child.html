@@ -1,0 +1,47 @@
+<div class="modal-body" id="add-child-modal">
+    <div class="modal-header">
+      <h2 class="modal-header-title">
+        <i class="fa fa-info-circle"></i>
+        <span class="p-l-1">Add Child</span>
+      </h2>
+  
+      <a class="modal-header-close" ng-click="dismiss();">
+        <i class="fa fa-remove"></i>
+      </a>
+    </div>
+  
+    <form class="form" id="master-data-reason-code-add-child-form">
+      <div class="modal-content" id="modal-modal-content">
+        <div class="text-center">
+
+          <p id="master-data-reason-code-add-child-note-p">You are adding a/an <strong>{{model.info.child}}</strong> to the <strong>{{model.info.self}}</strong></p>
+          <input class="md-equipment-datalist-input" id="master-data-reason-code-add-child-input" style="width:70%" type="text" name="child" maxlength="{{model.maxLength}}" placeholder="{{model.placeholder}}">
+
+        </div>
+  
+        <div class="custom-separator" style="margin-top:30px"></div>
+  
+        <div class="button-wrapper" style="text-align:center; margin-top:30px">
+          <button
+            id="master-data-reason-code-add-child-cancelBtn"
+            type="button"
+            class="btn btn-danger"
+            style="width:9rem"
+            ng-click="dismiss()"
+          >
+            Cancel
+          </button>
+  
+          <button
+            id="master-data-reason-code-add-child-submitBtn"
+            type="button"
+            class="btn btn-success"
+            style="width:9rem"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+</div>
+<div class="finish-line" id="110100110"></div>
