@@ -2,9 +2,9 @@
 
 | Libre panel of the ISA-88/95 Equipment Tree with Create, Read, Update and Delete functions
 
-This panel gives users the ability to visualize the enterprise site, area, line and equipment tree. By long clicking objects users create, read, update and delete equipment in the tree. This panel is part of [Libre](https://github.com/Spruik/Libre) suite of Grafana plugins and dashbaords. Production orders can be execute on a line. Downtime reasons can be classified against equipment. The equipment is related in an Enterprise --> Site --> Area --> Line --> Equipment structure. This plugin interfaces to a no security json rest api for equipment running on the same grafana server. This panel is targeted at Grafana v6.x.x only. 
+This panel gives users the ability to visualize the enterprise site, area, line and equipment tree. By long clicking objects users create, read, update and delete equipment in the tree. This panel is part of [Libre](https://github.com/Spruik/Libre) suite of Grafana plugins and dashbaords. Production orders can be execute on a line. Downtime reasons can be classified against equipment. The equipment is related in an Enterprise --> Site --> Area --> Line --> Equipment structure. This plugin interfaces to a no security json rest api for equipment running on the same grafana server. This panel is targeted at Grafana v6.x.x only.
 
-Equipment objects have 6 properties.
+Equipment objects have 5 properties.
 
 1. site - Name of the site _limited to 50 characters_
 2. area - Name of the area _limited to 50 characters_
