@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['./utils', 'angular'], function (_export, _context) {
+System.register(['./utils'], function (_export, _context) {
   "use strict";
 
-  var alert, showModal, post, postgRestHost, utils, angular, filter, closeForm;
+  var utils, filter, closeForm;
   function addChild(node, allData, panelCtrl) {
     var data = prepareModalData(node, allData);
     utils.showModal('add_child.html', data);
@@ -116,12 +116,12 @@ System.register(['./utils', 'angular'], function (_export, _context) {
 
   function insertNode(input, node, panelCtrl) {
     if (input === node.name) {
-      alert('warning', 'Warning', "The child node's name cannot be the same as its parent's name");
+      utils.alert('warning', 'Warning', "The child node's name cannot be the same as its parent's name");
       return;
     }
     var line = writeInsertionLine(input, node);
-    var url = postgRestHost + 'equipment';
-    post(url, line).then(function (res) {
+    var url = utils.postgRestHost + 'equipment';
+    utils.post(url, line).then(function (res) {
       // console.log(res)
       closeForm();
       utils.alert('success', 'Success', 'A new node has been succeesfully inserted');
@@ -145,18 +145,11 @@ System.register(['./utils', 'angular'], function (_export, _context) {
     } else if (node.type === 'Line') {
       line = 'site=' + node.info.site + '&area=' + node.info.area + '&production_line=' + node.info.line + '&equipment=' + input;
     }
-
     return line;
   }
   return {
     setters: [function (_utils) {
-      alert = _utils.alert;
-      showModal = _utils.showModal;
-      post = _utils.post;
-      postgRestHost = _utils.postgRestHost;
       utils = _utils;
-    }, function (_angular) {
-      angular = _angular.default;
     }],
     execute: function () {
       filter = [];

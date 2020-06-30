@@ -4,7 +4,6 @@ System.register([], function (_export, _context) {
   "use strict";
 
   function generateOption(data) {
-
     var option = {
       tooltip: {
         trigger: 'item',

@@ -6,17 +6,17 @@ System.register([], function (_export, _context) {
   /**
    * Expecting list of all data
    * Then first make a root, and sites
-   * @param {*} data 
+   * @param {*} data
    */
   function getTreeStructureData(data) {
-    //root
+    // root
     var obj = {
       children: [],
       name: 'Enterprise',
       type: 'Root',
       parent: null
 
-      //take all sites out from an array of objects, find disctinct, and make those distinct values a new array of strings
+      // take all sites out from an array of objects, find disctinct, and make those distinct values a new array of strings
     };var distinctSites = findDisctinct(data, 'site');
     for (var i = 0; i < distinctSites.length; i++) {
       var site = distinctSites[i];
@@ -39,8 +39,8 @@ System.register([], function (_export, _context) {
   /**
    * Expecting the tree structed obj, and the list structured array of objects
    * Add distinct areas to their matching sites
-   * @param {*} obj 
-   * @param {*} data 
+   * @param {*} obj
+   * @param {*} data
    */
 
   _export('getTreeStructureData', getTreeStructureData);
@@ -48,13 +48,13 @@ System.register([], function (_export, _context) {
   function getAreas(obj, data) {
     var _loop = function _loop(i) {
       var site = obj.children[i];
-      //find areas that are under this site
+      // find areas that are under this site
       var areas = data.filter(function (d) {
         return d.area !== null && d.site === site.name;
       });
-      //all areas to distinct areas
+      // all areas to distinct areas
       var distinctAreas = findDisctinct(areas, 'area');
-      //add each distinct area to this site
+      // add each distinct area to this site
       for (var k = 0; k < distinctAreas.length; k++) {
         var area = distinctAreas[k];
         var ob = {
@@ -72,7 +72,7 @@ System.register([], function (_export, _context) {
       }
     };
 
-    //Under the mother root, for each sites
+    // Under the mother root, for each sites
     for (var i = 0; i < obj.children.length; i++) {
       _loop(i);
     }
@@ -82,8 +82,8 @@ System.register([], function (_export, _context) {
   /**
    * Expecting the tree structed obj, and the list structured array of objects
    * Add distinct lines to their matching areas
-   * @param {*} obj 
-   * @param {*} data 
+   * @param {*} obj
+   * @param {*} data
    */
   function getLines(obj, data) {
     for (var i = 0; i < obj.children.length; i++) {
@@ -121,11 +121,11 @@ System.register([], function (_export, _context) {
   }
 
   /**
-  * Expecting the tree structed obj, and the list structured array of objects
-  * Add distinct lines to their matching areas
-  * @param {*} obj 
-  * @param {*} data 
-  */
+   * Expecting the tree structed obj, and the list structured array of objects
+   * Add distinct lines to their matching areas
+   * @param {*} obj
+   * @param {*} data
+   */
   function getEquiment(obj, data) {
     for (var i = 0; i < obj.children.length; i++) {
       var _site2 = obj.children[i];
@@ -171,12 +171,12 @@ System.register([], function (_export, _context) {
   }
 
   /**
-  * Expecting an array of objects, and a string of keyword
-  * Based on different attributes keywords passed in
-  * Return an array of distinct and keyword-matching values of the array of objects
-  * @param {*} arrObj 
-  * @param {*} s 
-  */
+   * Expecting an array of objects, and a string of keyword
+   * Based on different attributes keywords passed in
+   * Return an array of distinct and keyword-matching values of the array of objects
+   * @param {*} arrObj
+   * @param {*} s
+   */
   function findDisctinct(arrObj, s) {
     var areaArr = arrObj.reduce(function (arr, record) {
       if (s === 'site') {

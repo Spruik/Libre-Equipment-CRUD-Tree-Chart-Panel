@@ -132,7 +132,6 @@ System.register(['lodash', 'jquery', './libs/echarts.min', 'app/plugins/sdk', '.
 
           _this.hasData = false;
           _this.listData = [];
-
           return _this;
         }
 
@@ -161,14 +160,13 @@ System.register(['lodash', 'jquery', './libs/echarts.min', 'app/plugins/sdk', '.
           }
         }, {
           key: 'onDataError',
-          value: function onDataError(err) {
+          value: function onDataError() {
             this.dataRaw = [];
             this.render();
           }
         }, {
           key: 'onDataReceived',
           value: function onDataReceived(dataList) {
-
             if (dataList.length === 0 || dataList === null || dataList === undefined) {
               console.log('No data reveived');
               this.hasData = false;
@@ -184,14 +182,13 @@ System.register(['lodash', 'jquery', './libs/echarts.min', 'app/plugins/sdk', '.
 
             var data = this.getRestructuredData(dataList[0].columns, dataList[0].rows);
             this.listData = data;
-            //convert list data to tree-structured data
+            // convert list data to tree-structured data
             var treeData = getTreeStructureData(data);
             this.render(treeData, this.listData);
           }
         }, {
           key: 'getRestructuredData',
           value: function getRestructuredData(rawCols, rows) {
-
             var data = [];
             var cols = rawCols.reduce(function (arr, c) {
               var col = c.text.toLowerCase();
@@ -226,7 +223,7 @@ System.register(['lodash', 'jquery', './libs/echarts.min', 'app/plugins/sdk', '.
                 return;
               }
               var option = generateOption(data);
-              //   myChart.clear();
+              // myChart.clear();
               myChart.off('mouseup');
               myChart.off('mousedown');
               myChart.setOption(option);
@@ -237,8 +234,7 @@ System.register(['lodash', 'jquery', './libs/echarts.min', 'app/plugins/sdk', '.
                   myChart.resize();
                 };
               }, 500);
-
-              //set long press listener below
+              // set long press listener below
               var pressTimer = void 0;
               myChart.on('mouseup', function (params) {
                 clearTimeout(pressTimer);
@@ -247,7 +243,6 @@ System.register(['lodash', 'jquery', './libs/echarts.min', 'app/plugins/sdk', '.
               });
               myChart.on('mousedown', function (params) {
                 pressTimer = window.setTimeout(function () {
-                  //code here
                   showCrudPopup(params.data, ctrl, ctrl.listData);
                 }, 1200);
                 return false;

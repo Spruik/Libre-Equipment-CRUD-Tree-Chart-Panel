@@ -5,7 +5,6 @@ System.register(['./add_child_ctrl', './update_node_ctrl', './utils'], function 
 
   var addChild, updateNode, utils;
   function showCrudPopup(data, panelCtrl, allData) {
-
     utils.showModal('crud_options.html');
     removeListeners();
     addListeners(data, panelCtrl, allData);
@@ -16,7 +15,7 @@ System.register(['./add_child_ctrl', './update_node_ctrl', './utils'], function 
   function addListeners(data, panelCtrl, allData) {
     $(document).on('click', 'input[type="button"][name="master-data-reason-code-actions-radio"]', function (e) {
       if (e.target.id === 'add') {
-        //equipment is the last node, no chilren are allowed to be added to equipment
+        // equipment is the last node, no chilren are allowed to be added to equipment
         if (data.type === 'Equipment') {
           utils.alert('warning', 'Warning', 'Adding child to Equipment is not allowed');
           $('#master-data-crud-options-form-dismiss-btn').trigger('click');
@@ -53,7 +52,7 @@ System.register(['./add_child_ctrl', './update_node_ctrl', './utils'], function 
   function deleteNode(node, panelCtrl) {
     var url = utils.writeLine(node);
     if (url) {
-      //http request
+      // http request
       utils.deleteMethod(url).then(function (res) {
         // console.log(res)
         $('#master-data-reason-code-delete-confirmation-cancel-btn').trigger('click');

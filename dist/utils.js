@@ -3,19 +3,20 @@
 System.register(['app/core/core'], function (_export, _context) {
   "use strict";
 
-  var appEvents, hostname, postgRestHost, influxHost, post, update, deleteMethod, get, alert, showModal, writeLine, writeProductionLine;
+  var appEvents, hostname, protocol, postgRestHost, influxHost, post, update, deleteMethod, get, alert, showModal, writeLine, writeProductionLine;
   return {
     setters: [function (_appCoreCore) {
       appEvents = _appCoreCore.appEvents;
     }],
     execute: function () {
       hostname = window.location.hostname;
+      protocol = window.location.protocol;
 
-      _export('postgRestHost', postgRestHost = 'http://' + hostname + ':5436/');
+      _export('postgRestHost', postgRestHost = protocol + '//' + hostname + ':5436/');
 
       _export('postgRestHost', postgRestHost);
 
-      _export('influxHost', influxHost = 'http://' + hostname + ':8086/');
+      _export('influxHost', influxHost = protocol + '//' + hostname + ':8086/');
 
       _export('influxHost', influxHost);
 
@@ -24,7 +25,7 @@ System.register(['app/core/core'], function (_export, _context) {
           var xhr = new XMLHttpRequest();
           xhr.open('POST', url);
           xhr.onreadystatechange = handleResponse;
-          xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
           xhr.onerror = function (e) {
             return reject(e);
           };
@@ -55,7 +56,7 @@ System.register(['app/core/core'], function (_export, _context) {
           var xhr = new XMLHttpRequest();
           xhr.open('PATCH', url);
           xhr.onreadystatechange = handleResponse;
-          xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
           xhr.onerror = function (e) {
             return reject(e);
           };

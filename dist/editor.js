@@ -49,7 +49,6 @@ System.register(['lodash'], function (_export, _context) {
       }();
 
       _export('TablePanelEditorCtrl', TablePanelEditorCtrl = function () {
-
         /** @ngInject */
         function TablePanelEditorCtrl($scope, $q, uiSegmentSrv) {
           _classCallCheck(this, TablePanelEditorCtrl);

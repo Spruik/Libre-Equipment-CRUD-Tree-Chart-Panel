@@ -14,15 +14,13 @@ System.register(['./utils'], function (_export, _context) {
   /**
    * Update the reminder text based on the node's type
    * filter the distinct record of the same branch based on the node's type and push the value that match that type in the record to an array, this is for further validation purposes
-   * @param {*} node 
-   * @param {*} allData 
+   * @param {*} node
+   * @param {*} allData
    */
 
   _export('updateNode', updateNode);
 
   function prepareModalData(node, allData) {
-
-    var msg = void 0;
     var self = void 0;
     var maxlength = 50;
 
@@ -65,7 +63,6 @@ System.register(['./utils'], function (_export, _context) {
     }
 
     filter = Array.from(new Set(filter));
-
     return {
       info: { self: self },
       inputVal: node.name,
@@ -81,7 +78,7 @@ System.register(['./utils'], function (_export, _context) {
     $(document).on('click', '#master-data-reason-code-update-node-submitBtn', function (e) {
       var input = $('#master-data-reason-code-update-node-form').serializeArray()[0].value;
       if (isInputValid(input, node)) {
-        //valid
+        // valid
         startUpdate(input, node, panelCtrl);
       }
     });
@@ -91,8 +88,8 @@ System.register(['./utils'], function (_export, _context) {
    * Check if input is empty
    * Check if input has changed
    * Check if input is already exist within the same parent
-   * @param {*} input 
-   * @param {*} node 
+   * @param {*} input
+   * @param {*} node
    */
   function isInputValid(input, node) {
     if (input === '') {
@@ -110,8 +107,6 @@ System.register(['./utils'], function (_export, _context) {
       return arr;
     }, []);
 
-    // console.log(filter);
-
     if (filter.indexOf(input.toLowerCase()) !== -1) {
       utils.alert('warning', 'Warning', node.type + ' exists');
       return false;
@@ -122,9 +117,9 @@ System.register(['./utils'], function (_export, _context) {
 
   /**
    * Prepare urls and lines for the update
-   * @param {*} input 
-   * @param {*} node 
-   * @param {*} panelCtrl 
+   * @param {*} input
+   * @param {*} node
+   * @param {*} panelCtrl
    */
   function startUpdate(input, node, panelCtrl) {
     if (input === node.parent) {
@@ -141,9 +136,9 @@ System.register(['./utils'], function (_export, _context) {
    * Line is the update argument that is used to update all those records
    * popup successful, close the form, and refresh the tree when it's finished
    * popup error, close the form when it failed
-   * @param {*} url 
-   * @param {*} line 
-   * @param {*} panelCtrl 
+   * @param {*} url
+   * @param {*} line
+   * @param {*} panelCtrl
    */
   function normalUpdate(url, line, panelCtrl) {
     utils.update(url, line).then(function (res) {
@@ -160,8 +155,8 @@ System.register(['./utils'], function (_export, _context) {
 
   /**
    * Make the update line based on the node type.
-   * @param {*} input 
-   * @param {*} node 
+   * @param {*} input
+   * @param {*} node
    */
   function makeLine(input, node) {
     var l = '';
