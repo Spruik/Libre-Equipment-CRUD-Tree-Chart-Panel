@@ -1,18 +1,16 @@
 import { appEvents } from 'app/core/core'
 
-// const postgRestHost = 'http://178.128.159.217:5436/'
-// const influxHost = 'http://178.128.159.217:8086/'
-
 const hostname = window.location.hostname
-export const postgRestHost = 'http://' + hostname + ':5436/'
-export const influxHost = 'http://' + hostname + ':8086/'
+const protocol = window.location.protocol
+export const postgRestHost = `${protocol}//${hostname}:5436/`
+export const influxHost = `${protocol}//${hostname}:8086/`
 
 export const post = (url, line) => {
   return new Promise((resolve, reject) => {
     var xhr = new XMLHttpRequest()
     xhr.open('POST', url)
     xhr.onreadystatechange = handleResponse
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     xhr.onerror = e => reject(e)
     xhr.send(line)
 
@@ -39,7 +37,7 @@ export const update = (url, line) => {
     var xhr = new XMLHttpRequest()
     xhr.open('PATCH', url)
     xhr.onreadystatechange = handleResponse
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     xhr.onerror = e => reject(e)
     xhr.send(line)
 
@@ -96,10 +94,10 @@ export const get = url => {
     function handleResponse () {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
-        var res = JSON.parse(xhr.responseText)
-        resolve(res)
+          var res = JSON.parse(xhr.responseText)
+          resolve(res)
         } else {
-        reject(this.statusText)
+          reject(this.statusText)
         }
       }
     }
@@ -121,19 +119,19 @@ export const showModal = (html, data) => {
 export const writeLine = data => {
   let postgresUrl = postgRestHost + 'equipment?site=eq.' + data.info.site
   switch (data.type) {
-    case 'Site': break;
-    case 'Area': 
+    case 'Site': break
+    case 'Area':
       postgresUrl += '&area=eq.' + data.info.area
-      break;
-    case 'Line': 
+      break
+    case 'Line':
       postgresUrl += '&area=eq.' + data.info.area + '&production_line=eq.' + data.info.line
-      break;
-    case 'Equipment': 
+      break
+    case 'Equipment':
       postgresUrl += '&area=eq.' + data.info.area + '&production_line=eq.' + data.info.line + '&equipment=eq.' + data.name
-      break;
+      break
     default:
       postgresUrl = null
-      break;
+      break
   }
   return postgresUrl
 }
@@ -142,16 +140,16 @@ export const writeProductionLine = data => {
   let postgresUrl = postgRestHost + 'equipment?site=eq.' + data.info.site
   // + '&area=eq.' + rowData.Area + '&line=eq.' + rowData.Line
   switch (data.type) {
-    case 'Site': break;
-    case 'Area': 
+    case 'Site': break
+    case 'Area':
       postgresUrl += '&area=eq.' + data.info.area
-      break;
-    case 'Line': 
+      break
+    case 'Line':
       postgresUrl += '&area=eq.' + data.info.area + '&production_line=eq.' + data.info.line
-      break;
+      break
     default:
       postgresUrl = null
-      break;
+      break
   }
   return postgresUrl
 }

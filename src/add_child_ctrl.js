@@ -1,6 +1,4 @@
-import { alert, showModal, post, postgRestHost } from './utils'
 import * as utils from './utils'
-import angular from 'angular'
 
 let filter = []
 
@@ -9,7 +7,7 @@ const closeForm = () => {
 }
 
 export function addChild (node, allData, panelCtrl) {
-  let data = prepareModalData(node, allData)
+  const data = prepareModalData(node, allData)
   utils.showModal('add_child.html', data)
   removeListeners()
   addListeners(node, allData, panelCtrl)
@@ -18,9 +16,9 @@ export function addChild (node, allData, panelCtrl) {
 function prepareModalData (node, allData) {
   let sub, self
   let placeholder
-  let maxLength = 12
+  const maxLength = 12
   // console.log(allData);
-  
+
   if (node.type === 'Root') {
     sub = 'Site'
     self = 'Root'
@@ -30,7 +28,7 @@ function prepareModalData (node, allData) {
       arr.push(record.site)
       return arr
     }, [])
-  }else if (node.type === 'Site') {
+  } else if (node.type === 'Site') {
     sub = 'Area'
     self = 'Site called ' + node.name
     placeholder = 'Enter an Area here'
@@ -39,20 +37,20 @@ function prepareModalData (node, allData) {
       arr.push(record.area)
       return arr
     }, [])
-  }else if (node.type === 'Area') {
+  } else if (node.type === 'Area') {
     sub = 'Line'
     self = 'Area called ' + node.name
     placeholder = 'Enter a Line here'
-    filter = allData.filter( d => d.site !== null && d.site === node.info.site && d.area !== null && d.area === node.info.area && d.production_line !== null)
+    filter = allData.filter(d => d.site !== null && d.site === node.info.site && d.area !== null && d.area === node.info.area && d.production_line !== null)
     filter = filter.reduce((arr, record) => {
       arr.push(record.production_line)
       return arr
     }, [])
-  }else if (node.type === 'Line') {
+  } else if (node.type === 'Line') {
     sub = 'Equipment'
     self = 'Line called ' + node.name
     placeholder = 'Enter an Equipment here'
-    filter = allData.filter( d => d.equipment !== null && d.site === node.info.site && d.area === node.info.area && d.production_line === node.info.line)
+    filter = allData.filter(d => d.equipment !== null && d.site === node.info.site && d.area === node.info.area && d.production_line === node.info.line)
     filter = filter.reduce((arr, record) => {
       arr.push(record.equipment)
       return arr
@@ -109,12 +107,12 @@ function isInputAvailable (input) {
 
 function insertNode (input, node, panelCtrl) {
   if (input === node.name) {
-    alert('warning', 'Warning', "The child node's name cannot be the same as its parent's name")
+    utils.alert('warning', 'Warning', "The child node's name cannot be the same as its parent's name")
     return
   }
   const line = writeInsertionLine(input, node)
-  const url = postgRestHost + 'equipment'
-  post(url, line)
+  const url = utils.postgRestHost + 'equipment'
+  utils.post(url, line)
     .then(res => {
       // console.log(res)
       closeForm()
@@ -130,7 +128,6 @@ function insertNode (input, node, panelCtrl) {
         'Error ocurred whiling inserting node into the database, please try agian'
       )
     })
-  
 }
 
 function writeInsertionLine (input, node) {
@@ -138,13 +135,12 @@ function writeInsertionLine (input, node) {
 
   if (node.type === 'Root') {
     line = 'site=' + input
-  }else if (node.type === 'Site') {
+  } else if (node.type === 'Site') {
     line = 'site=' + node.info.site + '&area=' + input
-  }else if (node.type === 'Area') {
+  } else if (node.type === 'Area') {
     line = 'site=' + node.info.site + '&area=' + node.info.area + '&production_line=' + input
-  }else if (node.type === 'Line') {
+  } else if (node.type === 'Line') {
     line = 'site=' + node.info.site + '&area=' + node.info.area + '&production_line=' + node.info.line + '&equipment=' + input
   }
-
   return line
 }

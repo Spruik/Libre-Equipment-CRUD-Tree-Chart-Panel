@@ -1,5 +1,4 @@
 function generateOption (data) {
-
   const option = {
     tooltip: {
       trigger: 'item',
@@ -17,7 +16,7 @@ function generateOption (data) {
       borderColor: 'lightgray',
       borderWidth: 0.5,
       textStyle: {
-          color: 'black'
+        color: 'black'
       }
     },
     series: [
@@ -38,7 +37,7 @@ function generateOption (data) {
             position: 'left',
             verticalAlign: 'middle',
             align: 'right',
-            fontSize: 10,
+            fontSize: 10
           }
         },
 
@@ -62,8 +61,3 @@ function generateOption (data) {
 }
 
 export { generateOption }
-
-// myChart.setOption(option);
-// myChart.on('click', function(params){
-//   console.log(params)
-// })

@@ -2,7 +2,7 @@ import * as utils from './utils'
 let filter = []
 
 export function updateNode (node, allData, panelCtrl) {
-  let data = prepareModalData(node, allData)
+  const data = prepareModalData(node, allData)
   utils.showModal('update_node.html', data)
   removeListeners()
   addListeners(node, allData, panelCtrl)
@@ -11,14 +11,12 @@ export function updateNode (node, allData, panelCtrl) {
 /**
  * Update the reminder text based on the node's type
  * filter the distinct record of the same branch based on the node's type and push the value that match that type in the record to an array, this is for further validation purposes
- * @param {*} node 
- * @param {*} allData 
+ * @param {*} node
+ * @param {*} allData
  */
 function prepareModalData (node, allData) {
-
-  let msg
   let self
-  let maxlength = 50
+  const maxlength = 50
 
   if (node.type === 'Site') {
     self = 'Site'
@@ -27,21 +25,21 @@ function prepareModalData (node, allData) {
       arr.push(record.site)
       return arr
     }, [])
-  }else if (node.type === 'Area') {
+  } else if (node.type === 'Area') {
     self = 'Area'
     filter = allData.filter(d => d.site === node.info.site && d.area !== null)
     filter = filter.reduce((arr, record) => {
       arr.push(record.area)
       return arr
     }, [])
-  }else if (node.type === 'Line') {
+  } else if (node.type === 'Line') {
     self = 'Line'
     filter = allData.filter(d => d.site === node.info.site && d.area === node.info.area && d.production_line !== null)
     filter = filter.reduce((arr, record) => {
       arr.push(record.production_line)
       return arr
     }, [])
-  }else if (node.type === 'Equipment') {
+  } else if (node.type === 'Equipment') {
     self = 'Equipment'
     filter = allData.filter(d => d.site === node.info.site && d.area === node.info.area && d.production_line === node.info.line && d.equipment !== null)
     filter = filter.reduce((arr, record) => {
@@ -51,9 +49,8 @@ function prepareModalData (node, allData) {
   }
 
   filter = Array.from(new Set(filter))
-  
   return {
-    info: {self: self},
+    info: { self: self },
     inputVal: node.name,
     maxlength: maxlength
   }
@@ -67,7 +64,7 @@ function addListeners (node, allData, panelCtrl) {
   $(document).on('click', '#master-data-reason-code-update-node-submitBtn', e => {
     const input = $('#master-data-reason-code-update-node-form').serializeArray()[0].value
     if (isInputValid(input, node)) {
-      //valid
+      // valid
       startUpdate(input, node, panelCtrl)
     }
   })
@@ -77,10 +74,10 @@ function addListeners (node, allData, panelCtrl) {
  * Check if input is empty
  * Check if input has changed
  * Check if input is already exist within the same parent
- * @param {*} input 
- * @param {*} node 
+ * @param {*} input
+ * @param {*} node
  */
-function isInputValid(input, node) {
+function isInputValid (input, node) {
   if (input === '') {
     utils.alert('warning', 'Warning', 'Input Required')
     return false
@@ -96,8 +93,6 @@ function isInputValid(input, node) {
     return arr
   }, [])
 
-  // console.log(filter);
-  
   if (filter.indexOf(input.toLowerCase()) !== -1) {
     utils.alert('warning', 'Warning', node.type + ' exists')
     return false
@@ -108,11 +103,11 @@ function isInputValid(input, node) {
 
 /**
  * Prepare urls and lines for the update
- * @param {*} input 
- * @param {*} node 
- * @param {*} panelCtrl 
+ * @param {*} input
+ * @param {*} node
+ * @param {*} panelCtrl
  */
-function startUpdate(input, node, panelCtrl) {
+function startUpdate (input, node, panelCtrl) {
   if (input === node.parent) {
     utils.alert('warning', 'Warning', "The name cannot be the same as its parent's name")
     return
@@ -127,11 +122,11 @@ function startUpdate(input, node, panelCtrl) {
  * Line is the update argument that is used to update all those records
  * popup successful, close the form, and refresh the tree when it's finished
  * popup error, close the form when it failed
- * @param {*} url 
- * @param {*} line 
- * @param {*} panelCtrl 
+ * @param {*} url
+ * @param {*} line
+ * @param {*} panelCtrl
  */
-function normalUpdate(url, line, panelCtrl) {
+function normalUpdate (url, line, panelCtrl) {
   utils.update(url, line).then(res => {
     // console.log(res)
     $('#master-data-reason-code-update-node-cancelBtn').trigger('click')
@@ -146,18 +141,18 @@ function normalUpdate(url, line, panelCtrl) {
 
 /**
  * Make the update line based on the node type.
- * @param {*} input 
- * @param {*} node 
+ * @param {*} input
+ * @param {*} node
  */
-function makeLine(input, node){
+function makeLine (input, node) {
   let l = ''
   if (node.type === 'Site') {
     l = 'site=' + input
-  }else if (node.type === 'Area') {
+  } else if (node.type === 'Area') {
     l = 'area=' + input
-  }else if (node.type === 'Line') {
+  } else if (node.type === 'Line') {
     l = 'production_line=' + input
-  }else if (node.type === 'Equipment') {
+  } else if (node.type === 'Equipment') {
     l = 'equipment=' + input
   }
   return l
