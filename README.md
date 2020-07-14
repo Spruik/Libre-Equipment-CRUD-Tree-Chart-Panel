@@ -1,6 +1,6 @@
 # Libre Equipment Tree Panel
 
-| Libre panel of the ISA-88/95 Equipment Tree with Create, Read, Update and Delete functions
+> Libre panel of the ISA-88/95 Equipment Tree with Create, Read, Update and Delete functions
 
 This panel gives users the ability to visualize the enterprise site, area, line and equipment tree. By long clicking objects users create, read, update and delete equipment in the tree. This panel is part of [Libre](https://github.com/Spruik/Libre) suite of Grafana plugins and dashbaords. Production orders can be execute on a line. Downtime reasons can be classified against equipment. The equipment is related in an Enterprise --> Site --> Area --> Line --> Equipment structure. This plugin interfaces to a no security json rest api for equipment running on the same grafana server. This panel is targeted at Grafana v6.x.x only.
 
@@ -86,7 +86,7 @@ Start by cloning this repository
 ```shell
 ~/
 $ git clone https://github.com/Spruik/Libre-Equipment-CRUD-Tree-Chart-Panel
-Cloning into 'libre-equipment-crud-tree-chart-panel'...
+Cloning into 'Libre-Equipment-CRUD-Tree-Chart-Panel'...
 remote: Enumerating objects: 46, done.
 remote: Counting objects: 100% (46/46), done.
 remote: Compressing objects: 100% (31/31), done.
@@ -97,8 +97,8 @@ Unpacking objects: 100% (46/46), done.
 Enter project and install dependencies
 
 ```shell
-$ cd ./libre-equipment-crud-tree-chart-panel
-~/libre-equipment-crud-tree-chart-panel
+$ cd ./Libre-Equipment-CRUD-Tree-Chart-Panel
+~/Libre-Equipment-CRUD-Tree-Chart-Panel
 $ npm install
 ...
 added 714 packages from 399 contributors and audited 719 packages in 11.871s
@@ -118,17 +118,17 @@ updated 1 package in 1.364s
 Run grunt to build the panel
 
 ```shell
-$ grunt
-
 Running "copy:src_to_dist" (copy) task
-Created 2 directories, copied 8 files
+Created 3 directories, copied 9 files
 
-Running "copy:libs" (copy) task
+Running "copy:readme" (copy) task
+Created 1 directory, copied 10 files
+
+Running "copy:echarts_libs" (copy) task
+Copied 1 file
 
 Running "copy:pluginDef" (copy) task
 Copied 1 file
-
-Running "copy:image_to_dist" (copy) task
 
 Running "babel:dist" (babel) task
 
@@ -139,18 +139,18 @@ Done, without errors.
 Start docker-compose.dev.yml detached
 
 ```shell
-~/libre-equipment-crud-tree-chart-panel
+~/Libre-Equipment-CRUD-Tree-Chart-Panel
 $ docker-compose -f docker-compose.dev.yml up -d
-Starting libre-opation-crud-table-panel_postgres_1
-Starting libre-opation-crud-table-panel_postrest_1
-Starting libre-opation-crud-table-panel_simulator_1
-Starting libre-opation-crud-table-panel_grafana_1
+Starting libre-equipment-crud-tree-chart-panel_postgres_1
+Starting libre-equipment-crud-tree-chart-panel_postrest_1
+Starting libre-equipment-crud-tree-chart-panel_simulator_1
+Starting libre-equipment-crud-tree-chart-panel_grafana_1
 ```
 
 Run grunt watch to recompile on change
 
 ```shell
-~/libre-equipment-crud-tree-chart-panel
+~/Libre-Equipment-CRUD-Tree-Chart-Panel
 $ grunt watch
 Running "watch" task
 Waiting...
@@ -168,7 +168,7 @@ Prerequisites
 Build panel and zip into archive
 
 ```shell
-~/libre-equipment-crud-tree-chart-panel
+~/Libre-Equipment-CRUD-Tree-Chart-Panel
 $ grunt build
 Running "clean:0" (clean) task
 >> 1 path cleaned.
@@ -179,15 +179,11 @@ Running "clean:1" (clean) task
 Running "copy:src_to_dist" (copy) task
 Created 3 directories, copied 9 files
 
-Running "copy:libs" (copy) task
-
-
 Running "copy:readme" (copy) task
-Created 1 directory, copied 8 files
+Created 1 directory, copied 10 files
 
-Running "string-replace:dist" (string-replace) task
-
-1 files created
+Running "copy:echarts_libs" (copy) task
+Copied 1 file
 
 Running "copy:pluginDef" (copy) task
 Copied 1 file
