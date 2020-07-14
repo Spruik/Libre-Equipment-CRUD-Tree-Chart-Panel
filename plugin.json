@@ -26,8 +26,8 @@
       {"name": "Edit", "url": "public/plugins/libre-equipment-crud-tree-chart-panel/docs/libre-equipment-crud-tree-chart-panel-update.png"},
       {"name": "Delete", "url": "public/plugins/libre-equipment-crud-tree-chart-panel/docs/libre-equipment-crud-tree-chart-panel-delete.png"}
     ],
-    "version": "1.0.0",
-    "updated": "2020-06-30"
+    "version": "1.0.1",
+    "updated": "2020-07-14"
   },
   "dependencies": {
     "grafanaVersion": "6.x.x",
