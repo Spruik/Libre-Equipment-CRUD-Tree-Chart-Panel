@@ -209,8 +209,10 @@ For any issue, there are fundamentally three ways an individual can contribute:
 ## Change log
 
 - 1.0.1 Documentation Updates
-  - Remove unused grunt config
+  - Bump lodash from 4.17.11 to 4.17.13
+  - Bump mixin-deep from 1.3.1 to 1.3.2
   - Expose simulator port
   - Fix subtitle and project path
+  - Remove unused grunt config
 
 - 1.0.0 Initial Public Release
