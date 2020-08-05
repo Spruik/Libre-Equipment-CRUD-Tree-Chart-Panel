@@ -101,9 +101,7 @@ $ cd ./Libre-Equipment-CRUD-Tree-Chart-Panel
 ~/Libre-Equipment-CRUD-Tree-Chart-Panel
 $ npm install
 ...
-added 714 packages from 399 contributors and audited 719 packages in 11.871s
-found 42 vulnerabilities (11 low, 6 moderate, 25 high)
-  run `npm audit fix` to fix them, or `npm audit` for details
+added 648 packages in 14.47s
 ```
 
 Install Grunt globally
@@ -118,6 +116,7 @@ updated 1 package in 1.364s
 Run grunt to build the panel
 
 ```shell
+$ grunt
 Running "copy:src_to_dist" (copy) task
 Created 3 directories, copied 9 files
 
@@ -132,7 +131,7 @@ Copied 1 file
 
 Running "babel:dist" (babel) task
 
-Done, without errors.
+Done.
 
 ```
 
@@ -193,7 +192,11 @@ Running "babel:dist" (babel) task
 Running "compress:main" (compress) task
 >> Compressed 44 files.
 
-Done, without errors.
+Running "compress:tar" (compress) task
+>> Compressed 44 files.
+
+Done.
+
 ```
 
 Find a completed build of this panel in the root directory named `libre-equipment-crud-tree-chart-panel.zip`.
@@ -207,6 +210,14 @@ For any issue, there are fundamentally three ways an individual can contribute:
 - By helping to resolve the issue: Typically, this is done either in the form of demonstrating that the issue reported is not a problem after all, or more often, by opening a Pull Request that changes some bit of something in the panel in a concrete and reviewable manner.
 
 ## Change log
+
+- 1.0.2 Add Tar Build Output
+  -  Bump revision
+  -  Fix npm audit
+  -  Remove unused libraries
+  -  Add tar build output
+  -  Update README shell outputs
+  -  Bump Revision
 
 - 1.0.1 Documentation Updates
   - Bump lodash from 4.17.11 to 4.17.13
