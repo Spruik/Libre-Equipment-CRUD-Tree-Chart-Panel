@@ -1,11 +1,15 @@
 module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt)
 
-  grunt.loadNpmTasks('grunt-contrib-clean')
-  grunt.loadNpmTasks('grunt-multi-dest')
   grunt.loadNpmTasks('grunt-babel')
-  grunt.loadNpmTasks('grunt-force-task')
+  grunt.loadNpmTasks('grunt-contrib-clean')
+  grunt.loadNpmTasks('grunt-contrib-compress')
+  grunt.loadNpmTasks('grunt-contrib-copy')
   grunt.loadNpmTasks('grunt-contrib-jshint')
+  grunt.loadNpmTasks('grunt-contrib-watch')
+  grunt.loadNpmTasks('grunt-force-task')
+  grunt.loadNpmTasks('grunt-multi-dest')
+  grunt.loadNpmTasks('grunt-string-replace')
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -90,8 +94,16 @@ module.exports = function (grunt) {
         expand: true,
         cwd: 'dist/',
         src: ['**/*']
+      },
+      tar: {
+        options: {
+          archive: 'libre-equipment-crud-tree-chart-panel.tar.gz'
+        },
+        expand: true,
+        cwd: 'dist/',
+        src: ['**/*']
       }
-    }
+    },
   })
   grunt.registerTask('default', [
     'copy:src_to_dist',
@@ -103,6 +115,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean',
     'default',
-    'compress'
+    'compress:main',
+    'compress:tar',
   ])
 }
