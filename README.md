@@ -217,7 +217,7 @@ For any issue, there are fundamentally three ways an individual can contribute:
   - Remove unused libraries
   - Add tar build output
   - Update README shell outputs
-  - Bump Revision
+
 
 - 1.0.1 Documentation Updates
   - Bump lodash from 4.17.11 to 4.17.13
