@@ -1,6 +1,6 @@
 {
   "name": "libre-equipment-crud-tree-chart-panel",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Libre panel of the ISA-88/95 Equipment Tree with Create, Read, Update and Delete functions",
   "homepage": "https://github.com/Spruik/Libre-Equipment-CRUD-Tree-Chart-Panel",
   "repository": {
